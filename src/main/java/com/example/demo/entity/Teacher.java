@@ -12,8 +12,9 @@ public class Teacher {
     private String title;
     private String introduction;
     private String photo;
+    private String pwd;
 
-    public Teacher(int id, String tcode, String name, String gender, String degree, String title, String introduction, String photo) {
+    public Teacher(int id, String tcode, String name, String gender, String degree, String title, String introduction, String photo,String pwd) {
         this.id = id;
         this.tcode = tcode;
         this.name = name;
@@ -22,6 +23,7 @@ public class Teacher {
         this.title = title;
         this.introduction = introduction;
         this.photo = photo;
+        this.pwd=pwd;
     }
     private Teacher(){
 
