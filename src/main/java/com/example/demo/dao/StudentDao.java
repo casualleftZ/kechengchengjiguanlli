@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface StudentDao {
-    Student checkUserLoginDao(@Param("loginName") String name, @Param("loginPwd") String pwd);
+    Student checkUserLoginDao(String name, String pwd);
 }

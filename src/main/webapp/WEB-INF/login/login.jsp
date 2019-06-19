@@ -67,16 +67,7 @@ function ini(){
 															<input type="radio" name="consumer"checked="checked" value="teacher"/>老师
 														</td>
 													</tr>
-													<tr>
-														<font color="red">
-															<span od="message">${msg}</span>
-														</font>
-													</tr>
-													<tr>
-														<td height="30" nowrap colspan="2">
-															<strong><font color="red"></font> </strong>
-														</td>
-													</tr>
+													${requestScope.message}<br/>
 													<tr>
 														<td height="30">
 														</td>

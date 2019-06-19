@@ -25,7 +25,7 @@ public class Teacher {
         this.photo = photo;
         this.pwd=pwd;
     }
-    private Teacher(){
+    public Teacher(){
 
     }
 }
