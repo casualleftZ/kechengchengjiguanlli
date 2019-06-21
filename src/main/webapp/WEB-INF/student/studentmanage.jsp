@@ -12,7 +12,6 @@
     <frame cols="187,*" frameborder="no" border="0" framespacing="0">
         <jsp:include   page="top.jsp"  flush="true"/>
     </frameset>
-
 </center>
 
 </body>

@@ -15,7 +15,16 @@
         <td width="10%"><a href="">选课</a> </td>
         <td width="10%"><a href="">课程得分</a> </td>
     </tr>
+    <table width=90% border="1">
+        <tr><td width="8%">课程序号</td></tr>
+        <tr><td width="15%">课程名称</td></tr>
+        <tr><td width="15%">任课老师</td></tr>
+        <tr><td width="20%">上课时间</td></tr>
+        <tr><td width="20%">上课地点</td></tr>
+
+    </table>
 </center>
+
 
 </body>
 </html>
