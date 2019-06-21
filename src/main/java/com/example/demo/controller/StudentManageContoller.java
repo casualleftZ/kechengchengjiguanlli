@@ -21,7 +21,7 @@ public class StudentManageContoller {
 //        System.out.println("StudentManage.service"+name);
 
 
-
+        //是
         return "student/studentclass";
     }
 
