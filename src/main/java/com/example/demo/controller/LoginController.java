@@ -4,6 +4,7 @@ import com.example.demo.entity.Student;
 import com.example.demo.entity.Teacher;
 import com.example.demo.service.StudentService;
 import com.example.demo.service.TeacherService;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 
@@ -34,11 +38,21 @@ public class LoginController {
 
     @RequestMapping("/validateStudent")
     public String Login(String name, String password, String consumer,
-                        ModelMap map, HttpSession session) {
-      if (consumer.equals("student")) {
+                        ModelMap map, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+        if (consumer.equals("student")) {
             Student student = studentService.checkUserLoginDao(name, password);
+
             if (student!=null) {
-               return "/student/studentmanage";
+
+                HttpSession id=req.getSession();
+                HttpSession uname=req.getSession();
+                id.setMaxInactiveInterval(30);
+                uname.setMaxInactiveInterval(30);
+                id.setAttribute("id",student.getId());
+                uname.setAttribute("uname",name);
+
+                return "/student/studentmanage";
             } else{
                 String message = "账号密码输入错误";
                 map.put("message", message);
@@ -48,6 +62,16 @@ public class LoginController {
           } else {
            Teacher teacher = teacherService.checkUserLoginDao(name, password);
            if (teacher!= null) {
+               HttpSession id=req.getSession();
+               HttpSession uname=req.getSession();
+//                 id.setMaxInactiveInterval(30);
+//                 uname.setMaxInactiveInterval(30);
+//               Cookie c1=new Cookie("id",String.valueOf(teacher.getId()));
+//               c1.setMaxAge(3*24*3600);
+//               c1.setPath("/cookie/abc");
+               id.setAttribute("id",teacher.getId());
+               uname.setAttribute("uname",name);
+
                return "/teacher/teachermanage";
            } else {
                String message = "账号密码输入错误";

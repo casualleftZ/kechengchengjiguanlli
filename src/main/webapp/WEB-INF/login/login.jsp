@@ -1,3 +1,4 @@
+<%@ page import="com.example.demo.entity.Student" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <script type="text/javascript">
 function ini(){
@@ -16,6 +17,7 @@ function ini(){
 		return true
 	}
 </script>
+
 <html>
 	<head>
 		<meta http-equiv="Content-Language" content="zh-cn">
@@ -24,6 +26,7 @@ function ini(){
 		<link href="http://127.0.0.1:8080/css/Style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body onload="ini()">
+
 		<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 			<tr>
 				<td align="center">
@@ -50,7 +53,7 @@ function ini(){
 															<font color="000F60"><strong>用户名：</strong> </font>
 														</td>
 														<td>
-															<input type="text" name="name" value="" id="loginName" class="text" style="width: 160px;"/>
+															<input type="text" name="name" value="" id="loginName" value="$" class="text" style="width: 160px;"/>
 														</td>
 													</tr>
 													<tr>
