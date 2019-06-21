@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-import com.sun.deploy.panel.ITreeNode;
+
 import lombok.Data;
 
 @Data
