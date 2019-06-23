@@ -39,7 +39,7 @@ public class StudentManageContoller {
         List<Timeable> timeable=courseService.selectclass();
         req.setAttribute("timeable",timeable);
 
-        System.out.println(class_id);
+        System.out.println(class_id);//a
         System.out.println(name);
         return "/student/selectclass";
     }
