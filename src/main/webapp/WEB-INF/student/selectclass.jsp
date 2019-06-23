@@ -11,10 +11,10 @@
 </head>
 <body>
     <script type="text/javascript">
-        function select() {
+        function select( a) {
             alert("选择课程成功");
 
-            window.location.href='http://127.0.0.1:8080/addclass';
+            window.location.href='http://127.0.0.1:8080/addclass?data=' + a;
 
         }
     </script>
@@ -29,8 +29,8 @@
     </tr></br>
 
 
-        <table width=60% border="1"  method='get'>
-
+        <table width=60% border="1"  >
+        <from action="http://127.0.0.1:8080/addclass" method='post'>
         <caption><strong> <%out.println(session.getAttribute("uname"));%>的课程</strong></caption>
 
         <tr>
@@ -49,9 +49,9 @@
         <%
             ArrayList<Timeable> timeable;
             timeable= (ArrayList<Timeable>) request.getAttribute("timeable");
-        for(int i = 1; i<=timeable.size()-1; i++){%>
-        <tr>
-            <td name=class_id value=<%=timeable.get(i).getId() %>><%=timeable.get(i).getId()%></td>
+        for(int i = 0; i<=timeable.size()-1; i++){%>
+        <tr >
+            <td><%=timeable.get(i).getId()%></td>
             <td><%=timeable.get(i).getCname()%></td>
             <td><%=timeable.get(i).getTname()%></td>
             <td><%=timeable.get(i).getNum()%></td>
@@ -59,11 +59,11 @@
             <td><%=timeable.get(i).getTlhour()%></td>
             <td><%=timeable.get(i).getClass_time()%></td>
             <td><%=timeable.get(i).getClass_place()%></td>
-            <td><button type="button" name="select"  onclick="select();"><% %>选择</button></td>
+            <td><button type="button" name="select" onclick="select(<%=timeable.get(i).getId()%>);">选择</button></td>
             <td><button type="button" name="delete"><% %>退选</button></td>
         </tr>
-         <%};%>
-
+         <%}%>
+            </from>
     </table>
 
 </center>

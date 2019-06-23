@@ -4,7 +4,7 @@
 <mapper namespace="com.example.demo.dao.TimeableDao">
     <select id="selectclass" resultType="com.example.demo.entity.Timeable">
         select
-       c.id,c.cname,t.tname,c.num,c.thour,c.tlhour,cl.class_place,cl.class_time
+       cl.id,c.cname,t.tname,c.num,c.thour,c.tlhour,cl.class_place,cl.class_time
         from  course c
             LEFT  JOIN  course_class cl ON cl.course_id=c.id
             LEFT  JOIN  teacher t ON cl.teacher_id=t.id

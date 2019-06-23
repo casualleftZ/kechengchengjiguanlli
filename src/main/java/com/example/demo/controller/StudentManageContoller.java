@@ -27,20 +27,23 @@ public class StudentManageContoller {
 //        System.out.println("StudentManage.service"+name);
         List<Timeable> timeable=courseService.selectclass();
         req.setAttribute("timeable",timeable);
+        HttpSession class_id=req.getSession();
+        int a=1;
+        class_id.setAttribute("class_id",a);
  //       System.out.println(timeable);
 
         //是
         return "/student/selectclass";
     }
     @RequestMapping("/addclass")  //添加课程表
-    public String  Addclass(int class_id,HttpServletRequest req,HttpServletResponse resp,HttpSession session){
-        HttpSession uname=req.getSession();
-        String name=(String)uname.getAttribute("uname");
+    public String  Addclass(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
+//        HttpSession uname=req.getSession();
+//        String name=(String)uname.getAttribute("uname");
         List<Timeable> timeable=courseService.selectclass();
         req.setAttribute("timeable",timeable);
 
-        System.out.println(class_id);//a
-        System.out.println(name);
+
+        System.out.println(req.getParameter("data"));
         return "/student/selectclass";
     }
     @RequestMapping("/studentclass")    //学生课表
