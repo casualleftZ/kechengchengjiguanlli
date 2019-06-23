@@ -15,4 +15,5 @@ public class TeacherServiceImp implements TeacherService {
     public Teacher checkUserLoginDao(String name, String pwd){
      return  teacherDao.checkUserLoginDao(name,pwd);
     }
+
 }

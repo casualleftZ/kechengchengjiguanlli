@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface TeacherDao {
     Teacher checkUserLoginDao(String name, String pwd);
+
 }

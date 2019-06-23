@@ -5,4 +5,5 @@
 <select id="checkUserLoginDao" parameterType="String" resultType="com.example.demo.entity.Teacher">
     select * from teacher where tname=#{name} and pwd=#{pwd};
 </select>
+
 </mapper>

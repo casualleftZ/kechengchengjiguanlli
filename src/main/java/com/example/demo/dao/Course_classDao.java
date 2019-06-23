@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface Course_classDao {
-    //根据教师ID查询教师的课
-    List<Course_class> getclass(Integer teacher_id);
+    //查询开班的课程
+    List<Course_class> getclass();
+    //根据老师id查询所带课程
+    List<Course_class> getteacherclass(Integer teacher_id);
 }
