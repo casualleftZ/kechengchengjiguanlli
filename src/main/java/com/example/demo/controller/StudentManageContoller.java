@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,6 +30,17 @@ public class StudentManageContoller {
  //       System.out.println(timeable);
 
         //是
+        return "/student/selectclass";
+    }
+    @RequestMapping("/addclass")  //添加课程表
+    public String  Addclass(int class_id,HttpServletRequest req,HttpServletResponse resp,HttpSession session){
+        HttpSession uname=req.getSession();
+        String name=(String)uname.getAttribute("uname");
+        List<Timeable> timeable=courseService.selectclass();
+        req.setAttribute("timeable",timeable);
+
+        System.out.println(class_id);
+        System.out.println(name);
         return "/student/selectclass";
     }
     @RequestMapping("/studentclass")    //学生课表
