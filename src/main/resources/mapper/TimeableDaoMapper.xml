@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TimeableDao">
+    <select id="selectclass" resultType="com.example.demo.entity.Timeable">
+        select
+       c.id,c.cname,t.tname,c.num,c.thour,c.tlhour,cl.class_place,cl.class_time
+        from  course c
+            LEFT  JOIN  course_class cl ON cl.course_id=c.id
+            LEFT  JOIN  teacher t ON cl.teacher_id=t.id
+    </select>
+</mapper>

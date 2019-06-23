@@ -5,7 +5,7 @@ import lombok.Setter;
 @Data
 public class Course {
     private int id;
-    private String number;
+    private String num;
     private String cname;
     private String ename;
     private int score;
@@ -14,9 +14,9 @@ public class Course {
     private int tchour; //理论总学时
     private int tlhour; //实验总学时
 
-    public Course(int id, String number, String cname, String ename, int score, int chour, int ihour, int tchour, int tlhour) {
+    public Course(int id, String num, String cname, String ename, int score, int chour, int ihour, int tchour, int tlhour) {
         this.id = id;
-        this.number = number;
+        this.num = num;
         this.cname = cname;
         this.ename = ename;
         this.score = score;
