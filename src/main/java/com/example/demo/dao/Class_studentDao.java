@@ -2,6 +2,7 @@ package com.example.demo.dao;
 
 import com.example.demo.entity.Class;
 import com.example.demo.entity.Class_student;
+import com.example.demo.entity.Class_student2;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface Class_studentDao {
     Class_student selectclass(int course_class_id,int stu_id);  //课程号查找课程
 
     Class_student deleteclass(int course_class_id,int stu_id);   //删除课程
+
+    Class_student2 selectscore(int course_class_id, int stu_id);  //查找分数
+
+
 }

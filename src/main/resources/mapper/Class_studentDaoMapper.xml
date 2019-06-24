@@ -11,5 +11,11 @@
     <select id="deleteclass" parameterType="int" >
         delete from  class_student where course_class_id=#{course_class_id} and student_id=#{stu_id};
     </select>
+    <select id="selectscore" parameterType="int"  resultType="com.example.demo.entity.Class_student2">
+        select  id, c.cname,cs.gpa_score,cs.paper_score, cs.practice_score,cs.score from class_student cs
+         LEFT  JOIN  course c ON   cl.course_id=c.id
+         LEFT  JOIN  course_class cl ON cl.id=cs.course_class_id
+
+    </select>
 
 </mapper>
