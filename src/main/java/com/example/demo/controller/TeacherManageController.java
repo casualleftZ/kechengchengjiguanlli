@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 
 import com.example.demo.entity.Class_student;
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Student2;
 import com.example.demo.entity.Teacher_class;
 import com.example.demo.service.Class_studentDaoService;
 import com.example.demo.service.Course_classDaoService;
@@ -41,8 +43,12 @@ public class TeacherManageController {
        传入course_id,得到该课程的学生
         */
     @RequestMapping("/teacherclassstudent")
-    public String teacherclassstudent(Integer course_id){
-
+    public String teacherclassstudent(HttpServletRequest req){
+        String a=req.getParameter("data");
+        int class_id=Integer.parseInt(a);
+        System.out.println(class_id);
+        List<Student2>student2s=class_studentDaoService.getclassstudent(class_id);
+        req.setAttribute("student2s",student2s);
         return "/teacher/classstudent";
     }
 

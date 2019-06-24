@@ -1,11 +1,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.Class_studentDao">
 
-    <select id="getclassstudent" parameterType="integer" resultType="com.example.demo.Vo.StudentClass">
-    select  cl.id,cl.course_class_id,cl.student_id,c.cname,s.name
+    <select id="getclassstudent" parameterType="int" resultType="com.example.demo.entity.Student2">
+    select  s.id, s.sname,s.gender,cs.name
     from class_student cl left join student s on cl.student_id=s.id
     left join course c
        on cl.course_class_id=c.id
+    left join  class cs on cs.id= s.class_id
     where course_class_id=#{course_id};
 </select>
 
