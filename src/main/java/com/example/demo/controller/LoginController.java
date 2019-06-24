@@ -65,6 +65,8 @@ public class LoginController {
 //               Cookie c1=new Cookie("id",String.valueOf(teacher.getId()));
 //               c1.setMaxAge(3*24*3600);
 //               c1.setPath("/cookie/abc");
+               id.setMaxInactiveInterval(30);
+               uname.setMaxInactiveInterval(30);
                id.setAttribute("id",teacher.getId());
                uname.setAttribute("uname",name);
 

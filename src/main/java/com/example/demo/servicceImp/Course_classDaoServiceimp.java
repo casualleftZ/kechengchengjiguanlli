@@ -5,12 +5,13 @@ import com.example.demo.entity.Course_class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class Course_classDaoServiceimp implements com.example.demo.service.Course_classDaoService {
 
-    @Autowired
+    @Resource
     private Course_classDao course_classDao;
     @Override
     public List<Course_class> getclass() {

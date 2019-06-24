@@ -10,12 +10,16 @@ import com.example.demo.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
-public class TeacherController {
+public class TeacherManageController {
 
     @Autowired
     private Course_classDaoService course_classDaoService;
@@ -25,10 +29,14 @@ public class TeacherController {
     /*
     传入teacher_id,得到该教师所带的课程
      */
-    @GetMapping("/teacherclass")
-    public List<Course_class> getteacherclass(Integer teacher_id){
-        List<Course_class> courseClassList=course_classDaoService.getteacherclass(1);
-        return courseClassList;
+    @RequestMapping("/teacherclass")
+    public String Teacherclass(HttpServletRequest req, HttpServletResponse resp, HttpSession sessionint){
+        HttpSession id=req.getSession();
+        int id2=(int)id.getAttribute("id");
+        List<Course_class> courseClassList=course_classDaoService.getteacherclass(id2);
+        req.setAttribute("courseClassList",courseClassList);
+        System.out.println(courseClassList);
+        return "/teacher/teacherclass";
     }
     /*
        传入course_id,得到该课程的学生
