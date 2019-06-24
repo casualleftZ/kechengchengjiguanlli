@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
-
 public class LoginController {
     @Autowired
     private StudentService studentService;
@@ -27,11 +26,9 @@ public class LoginController {
     private TeacherService teacherService;
 
     @RequestMapping("/login")
-
     public String login() {
         return "login/login";
     }
-
     @RequestMapping("/validateStudent")
     public String Login(String name, String password, String consumer,
                         ModelMap map, HttpServletRequest req, HttpServletResponse resp) throws IOException {

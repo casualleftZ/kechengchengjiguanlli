@@ -2,7 +2,7 @@ package com.example.demo.servicceImp;
 
 import com.example.demo.dao.Course_classDao;
 import com.example.demo.entity.Course_class;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.entity.Teacher_class;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -20,7 +20,9 @@ public class Course_classDaoServiceimp implements com.example.demo.service.Cours
     }
 
     @Override
-    public List<Course_class> getteacherclass(Integer teacher_id) {
-        return course_classDao.getteacherclass(teacher_id);
+    public List<Teacher_class> getteacherclass(int teacher_id) {
+        return  course_classDao.getteacherclass(teacher_id);
     }
+
 }
+

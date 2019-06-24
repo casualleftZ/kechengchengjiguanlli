@@ -6,11 +6,17 @@
 <body>
 <center>
     <h1>教师管理系统</h1><hr>
-    <tr>
-        <td width="10%"><a href="" >我的课程表</a></td>
-        <td width="10%"><a href="">选课</a> </td>
-        <td width="10%"><a href="">课程得分</a> </td>
-    </tr>
+    <table width="60%" border="1">
+        <caption><strong> <%out.println(session.getAttribute("uname"));%>的课程</strong></caption>
+        <tr>
+        <th >学生序号</th>
+        <th >学生名字</th>
+        <th >学生性别</th>
+        <th >学生班级</th>
+        <th >打分</th>
+        </tr>
+
+    </table>
 </center>
 
 </body>

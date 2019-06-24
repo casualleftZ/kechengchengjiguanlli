@@ -36,13 +36,13 @@
             timeCourse= (ArrayList<TimeCourse>) request.getAttribute("timeCourse");
             for(int i=0;i<=timeCourse.size()-1;i++){%>
             <tr>
-                <td><%=i%></td>
+                <td><%=i+1%></td>
                 <td><%=timeCourse.get(i).getCname()%></td>
                 <td><%=timeCourse.get(i).getTname()%></td>
                 <td><%=timeCourse.get(i).getClass_place()%></td>
                 <td><%=timeCourse.get(i).getClass_time()%></td>
             </tr>
-        <% }%>
+        <% };%>
 
     </table>
 

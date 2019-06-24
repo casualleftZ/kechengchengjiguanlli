@@ -2,14 +2,14 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.Course_classDao">
-    <select id="getclass"  resultType="com.example.demo.Vo.TeacherClass">
+   <!-- <select id="getclass"  resultType="com.example.demo.Vo.TeacherClass">
     select  cl.id,cl.course_id,cl.teacher_id,c.cname,t.tname
     from course_class cl left join course c on cl.course_id=c.id
     left join teacher t
        on cl.teacher_id=t.id
-</select>
-    <select id="getteacherclass" parameterType="integer" resultType="com.example.demo.Vo.TeacherClass">
-    select  cl.id,cl.course_id,cl.teacher_id,c.cname,t.tname
+</select> -->
+    <select id="getteacherclass" parameterType="int" resultType="com.example.demo.entity.Teacher_class">
+    select cl.course_id, c.cname,cl.class_time,cl.class_place
     from course_class cl left join course c on cl.course_id=c.id
     left join teacher t
        on cl.teacher_id=t.id
