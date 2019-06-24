@@ -4,6 +4,7 @@ import com.example.demo.dao.Class_studentDao;
 import com.example.demo.dao.TimeCourseDao;
 import com.example.demo.dao.TimeableDao;
 import com.example.demo.entity.Class_student;
+import com.example.demo.entity.Class_student2;
 import com.example.demo.entity.TimeCourse;
 import com.example.demo.entity.Timeable;
 import com.example.demo.service.CourseService;
@@ -43,6 +44,11 @@ public class CourseServiceImp implements CourseService {
     @Override
     public List<TimeCourse> lookcourse(int stu_id) {
         return timeCourseDao.lookcourse(stu_id);
+    }
+
+    @Override
+    public List<Class_student2> selectscore(int stu_id) {
+        return class_studentDao.selectscore(stu_id);
     }
 
 

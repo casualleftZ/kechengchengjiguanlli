@@ -17,7 +17,7 @@ public interface Class_studentDao {
 
     Class_student deleteclass(int course_class_id,int stu_id);   //删除课程
 
-    Class_student2 selectscore(int course_class_id, int stu_id);  //查找分数
+    List<Class_student2> selectscore(int stu_id);  //查找分数
 
 
 }

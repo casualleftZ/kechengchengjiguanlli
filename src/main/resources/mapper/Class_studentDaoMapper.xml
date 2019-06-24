@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.Class_studentDao">
     <select id="addclass" parameterType="int" resultType="com.example.demo.entity.Class_student">
-        insert into class_student values(DEFAULT ,#{course_class_id} ,#{stu_id},0,0,0) ;
+        insert into class_student values(DEFAULT ,#{course_class_id} ,#{stu_id},0,0,0,0) ;
     </select>
     <select id="selectclass" parameterType="int" resultType="com.example.demo.entity.Class_student">
         select * from class_student
@@ -12,9 +12,10 @@
         delete from  class_student where course_class_id=#{course_class_id} and student_id=#{stu_id};
     </select>
     <select id="selectscore" parameterType="int"  resultType="com.example.demo.entity.Class_student2">
-        select  id, c.cname,cs.gpa_score,cs.paper_score, cs.practice_score,cs.score from class_student cs
-         LEFT  JOIN  course c ON   cl.course_id=c.id
+           select   c.cname,cs.gpa_score,cs.paper_score, cs.practice_score,cs.score from class_student cs
          LEFT  JOIN  course_class cl ON cl.id=cs.course_class_id
+         LEFT  JOIN  course c  ON   cl.course_id=c.id
+				where   cs.student_id=#{stu_id}
 
     </select>
 

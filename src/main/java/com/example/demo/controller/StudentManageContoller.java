@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.TimeCourseDao;
 import com.example.demo.entity.Class_student;
+import com.example.demo.entity.Class_student2;
 import com.example.demo.entity.TimeCourse;
 import com.example.demo.entity.Timeable;
 import com.example.demo.service.CourseService;
@@ -70,5 +71,14 @@ public class StudentManageContoller {
         List<TimeCourse> timeCourse=courseService.lookcourse(id2);
         req.setAttribute("timeCourse",timeCourse);
         return "/student/studentclass";
+    }
+
+    @RequestMapping("/studentscore")   //学生分数
+    public String Studentscore(HttpServletRequest req,HttpSession session){
+        HttpSession id=req.getSession();
+        int id2=(int)id.getAttribute("id");
+        List<Class_student2>class_student2=courseService.selectscore(id2);
+        req.setAttribute("class_student2",class_student2);
+        return "/student/scoreclass";
     }
 }

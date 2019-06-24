@@ -16,7 +16,7 @@
     <tr>
         <td width="10%"><font color="blue">我的课程表</font></td>
         <td width="10%"><a href="http://127.0.0.1:8080/selectclass">选课</a> </td>
-        <td width="10%"><a href="">课程得分</a> </td>
+        <td width="10%"><a href="http://127.0.0.1:8080/studentscore">课程得分</a> </td>
     </tr></br>
 
 
