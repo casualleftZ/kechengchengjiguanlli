@@ -3,6 +3,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.dao.Class_studentDao">
     <select id="addclass" parameterType="int" resultType="com.example.demo.entity.Class_student">
-        insert into class_student values(default ,#{course_class_id} ,#{stu_id},0,0,0) ;
+        insert into class_student values(DEFAULT ,#{course_class_id} ,#{stu_id},0,0,0) ;
     </select>
+    <select id="selectclass" parameterType="int" resultType="com.example.demo.entity.Class_student">
+        select * from class_student
+    </select>
+    <select id="deleteclass" parameterType="int" >
+        delete from  class_student where course_class_id=#{course_class_id} and student_id=#{stu_id};
+    </select>
+
 </mapper>

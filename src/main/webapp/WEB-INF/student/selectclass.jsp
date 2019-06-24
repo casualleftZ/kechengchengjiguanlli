@@ -4,6 +4,7 @@
 <%@ page import="com.example.demo.entity.Timeable" %>
 <%@ page import="com.example.demo.service.CourseService" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.demo.entity.Class_student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -15,7 +16,11 @@
             alert("选择课程成功");
 
             window.location.href='http://127.0.0.1:8080/addclass?data=' + a;
+        }
+        function delete2(a) {
+            alert("退选课程成功");
 
+            window.location.href='http://127.0.0.1:8080/deleteclass?data=' + a;
         }
     </script>
 <p>欢迎<%out.println(session.getAttribute("uname"));%>登录   <u><a href="http://127.0.0.1:8080/login"><font color="blue">退出登录</font></a></u></p>
@@ -60,9 +65,9 @@
             <td><%=timeable.get(i).getClass_time()%></td>
             <td><%=timeable.get(i).getClass_place()%></td>
             <td><button type="button" name="select" onclick="select(<%=timeable.get(i).getId()%>);">选择</button></td>
-            <td><button type="button" name="delete"><% %>退选</button></td>
+            <td><button type="button" name="delete" onclick="delete2(<%=timeable.get(i).getId()%>);">退选</button></td>
         </tr>
-         <%}%>
+         <%};%>
             </from>
     </table>
 

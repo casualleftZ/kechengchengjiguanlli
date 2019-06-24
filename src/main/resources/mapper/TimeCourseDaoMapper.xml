@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.TimeCourseDao">
+    <select id="lookcourse" parameterType="int" resultType="com.example.demo.entity.TimeCourse">
+   select c.cname,t.tname,cl.class_time,cl.class_place
+        from class_student cs
+        LEFT  JOIN  course_class cl ON cl.id=cs.course_class_id
+        LEFT  JOIN  teacher t ON  t.id=cl.teacher_id
+        LEFT  JOIN  course c ON   cl.course_id=c.id
+        where cs.student_id=#{stu_id};
+    </select>
+</mapper>

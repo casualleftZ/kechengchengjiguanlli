@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.dao.TimeCourseDao;
+import com.example.demo.entity.Class_student;
+import com.example.demo.entity.TimeCourse;
 import com.example.demo.entity.Timeable;
 import com.example.demo.service.CourseService;
 import com.example.demo.service.StudentService;
@@ -27,9 +30,9 @@ public class StudentManageContoller {
 //        System.out.println("StudentManage.service"+name);
         List<Timeable> timeable=courseService.selectclass();
         req.setAttribute("timeable",timeable);
-        HttpSession class_id=req.getSession();
-        int a=1;
-        class_id.setAttribute("class_id",a);
+
+
+
  //       System.out.println(timeable);
 
         //是
@@ -37,18 +40,35 @@ public class StudentManageContoller {
     }
     @RequestMapping("/addclass")  //添加课程表
     public String  Addclass(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
-//        HttpSession uname=req.getSession();
-//        String name=(String)uname.getAttribute("uname");
+        HttpSession id=req.getSession();
+        String a=req.getParameter("data");
+        int class_id=Integer.parseInt(a);
+        int id2=(int)id.getAttribute("id");
         List<Timeable> timeable=courseService.selectclass();
         req.setAttribute("timeable",timeable);
-
-
-        System.out.println(req.getParameter("data"));
+        courseService.addclass(class_id,id2);
         return "/student/selectclass";
     }
+
+    @RequestMapping("/deleteclass")  //删除课程表
+    public String  Deleteclass(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
+        HttpSession id=req.getSession();
+        String a=req.getParameter("data");
+        int class_id=Integer.parseInt(a);
+        int id2=(int)id.getAttribute("id");
+        List<Timeable> timeable=courseService.selectclass();
+        req.setAttribute("timeable",timeable);
+        courseService.deleteclass(class_id,id2);
+        return "/student/selectclass";
+    }
+
     @RequestMapping("/studentclass")    //学生课表
     public String StudentClass(HttpServletRequest req, HttpServletResponse resp,HttpSession session)throws IOException{
-
+        HttpSession id=req.getSession();
+        String a=req.getParameter("data");
+        int id2=(int)id.getAttribute("id");
+        List<TimeCourse> timeCourse=courseService.lookcourse(id2);
+        req.setAttribute("timeCourse",timeCourse);
         return "/student/studentclass";
     }
 }

@@ -1,5 +1,7 @@
 <%@ page import="com.fasterxml.jackson.annotation.JsonTypeInfo" %>
 <%@ page import="com.example.demo.entity.Student" %>
+<%@ page import="com.example.demo.entity.TimeCourse" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -30,15 +32,17 @@
             <th width="20%">上课地点</th>
         </tr>
 
-        <% for(int i=1;i<=10;i++){%>
+        <%  ArrayList<TimeCourse> timeCourse;
+            timeCourse= (ArrayList<TimeCourse>) request.getAttribute("timeCourse");
+            for(int i=0;i<=timeCourse.size()-1;i++){%>
             <tr>
-                <td>1</td>
-                <td>美术</td>
-                <td>余飘</td>
-                <td>6:00</td>
-                <td>w3401</td>
+                <td><%=i%></td>
+                <td><%=timeCourse.get(i).getCname()%></td>
+                <td><%=timeCourse.get(i).getTname()%></td>
+                <td><%=timeCourse.get(i).getClass_place()%></td>
+                <td><%=timeCourse.get(i).getClass_time()%></td>
             </tr>
-        <% ;}%>
+        <% }%>
 
     </table>
 
